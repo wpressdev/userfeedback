@@ -55,4 +55,13 @@ app.use(function(err, req, res, next) {
 });
 
 
+var port = (process.env.PORT || "8080");
+app.set("port", port);
+
+var server = http.createServer(app);
+
+server.listen(port);
+server.on("error", onError);
+console.log('Node app is running on port', app.get('port'));
+
 module.exports = app;
